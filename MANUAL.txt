@@ -1,0 +1,296 @@
+================================================================================
+  FRASES CÉLEBRES - SABIDURÍA Y REFLEXIÓN
+  Manual de Instrucciones
+================================================================================
+
+DESCRIPCIÓN
+===========
+Aplicación web para leer, buscar y compartir 100 reflexiones/frases célebres.
+Optimizada para celulares. Hecha con Python y Streamlit.
+
+Características principales:
+  • Búsqueda inteligente (tolera errores de tipeo y acentos)
+  • Resaltado de palabras encontradas
+  • Filtro por año de publicación
+  • Modo oscuro 🌙
+  • Reflexión al azar 🎲
+  • Copiar/compartir por WhatsApp y Telegram
+  • Favoritas ⭐ guardadas en el navegador
+
+================================================================================
+1. CÓMO AGREGAR O CORREGIR FRASES
+================================================================================
+
+DÓNDE ESTÁN LAS FRASES
+  Las 100 frases están en el archivo "app.py", dentro de una lista llamada
+  REFLEXIONES. Cada frase es una línea con este formato:
+
+    {"numero": 5, "fecha": "01.02.03", "texto": "Texto de la frase aquí."}
+
+LOS 3 CAMPOS
+  • numero      → el número de reflexión (sin comillas). Ej: 5
+  • fecha       → la fecha entre comillas. Ej: "01.02.03" o "04.01.2004"
+                  Si no tiene fecha, déjalo vacío: ""
+  • texto       → la frase entre comillas. Ej: "Mi mejor ofrenda..."
+
+AGREGAR UNA FRASE NUEVA
+  1. Abre app.py con un editor de texto (Bloc de notas, VS Code, Notepad++).
+  2. Busca la línea que dice: REFLEXIONES = [
+  3. Ve hasta la ÚLTIMA frase (la número 100).
+  4. DESPUÉS de la última frase (después de su llave }, agrega una coma y luego
+     tu línea nueva. Ejemplo:
+
+       {"numero": 100, "fecha": "24.01.05", "texto": "Me apoyaré..."},
+       {"numero": 101, "fecha": "01.06.26", "texto": "Tu nueva frase aquí."},
+       ]
+
+  5. Guarda el archivo (Ctrl+S).
+
+CORREGIR UNA FRASE EXISTENTE
+  1. Busca la frase por su número (Ctrl+F, escribe el número).
+  2. Cambia el texto dentro de las comillas de "texto" o "fecha".
+  3. Guarda.
+
+REGLAS DE ORO (para que no se rompa la app)
+  • Cada línea de frase TERMINA EN COMA:
+      {"numero": 5, ...},  ← coma obligatoria
+
+  • El texto VA ENTRE COMILLAS DOBLES:
+      "texto": "Mi frase aquí."
+
+  • Si la frase CONTIENE una comilla doble, escríbela con barra invertida:
+      "texto": "Él dijo \"sí\" con firmeza."
+      (Las tildes, ¿?, ¡!, ñ se escriben normal, sin problemas.)
+
+  • NO borres los corchetes [ ] al inicio y final de la lista REFLEXIONES.
+
+  • Si la app muestra un error rojo tras editar, casi siempre falta:
+      - Una coma al final de una línea
+      - Una comilla sin cerrar
+
+CONSEJO
+  Antes de hacer muchos cambios, guarda una copia de app.py (app_respaldo.py)
+  por si acaso.
+
+================================================================================
+2. INSTALACIÓN LOCAL (en tu computadora)
+================================================================================
+
+REQUISITOS
+  • Python 3 (descargar desde https://www.python.org/downloads/)
+  • Una carpeta del proyecto (la que estás usando ahora)
+
+PASOS (una sola vez)
+
+  Paso 1: Instala Python
+    Descarga desde https://www.python.org/downloads/
+    En Windows: marca la casilla "Add Python to PATH" durante la instalación.
+
+  Paso 2: Abre una terminal en la carpeta del proyecto
+    Windows:
+      • Abre la carpeta del proyecto (donde está app.py)
+      • Escribe "cmd" en la barra de direcciones del explorador
+      • Presiona Enter
+
+    (Se abrirá una ventana negra de terminal)
+
+  Paso 3: Instala las librerías (una sola vez)
+    En la terminal, escribe:
+      pip install -r requirements.txt
+
+    (Descargará e instalará todas las librerías necesarias)
+
+  Paso 4: Arranca la app
+    En la terminal, escribe:
+      streamlit run app.py
+
+    Se abrirá sola en tu navegador (http://localhost:8501)
+
+CADA VEZ QUE EDITES app.py
+  • Guarda el archivo
+  • La app se actualiza sola (arriba a la derecha aparece "Rerun")
+  • No necesitas hacer nada más
+
+DETENER LA APP
+  En la terminal, presiona: Ctrl + C
+
+================================================================================
+3. SUBIRLA A INTERNET (GRATIS) Y VERLA EN EL CELULAR
+================================================================================
+
+La forma más fácil es Streamlit Community Cloud.
+
+PASO A PASO
+
+  Paso 1: Crea una cuenta en GitHub
+    • Ve a https://github.com/signup
+    • Llena el formulario (mail, contraseña, usuario)
+    • Confirma tu correo
+    • ¡Listo!
+
+  Paso 2: Crea un repositorio nuevo en GitHub
+    • En GitHub, presiona el botón "+" (arriba a la derecha)
+    • Elige "New repository"
+    • Dale un nombre (ej: frases-celebres)
+    • Presiona "Create repository"
+
+  Paso 3: Sube los archivos del proyecto a GitHub
+    • En la página del repositorio, presiona "Add file" > "Upload files"
+    • Arrastra los archivos: app.py, requirements.txt, LEEME.md
+    • Presiona "Commit changes"
+
+  Paso 4: Despliega en Streamlit Cloud
+    • Ve a https://share.streamlit.io
+    • Inicia sesión con tu cuenta de GitHub
+    • Presiona "New app"
+    • Selecciona tu repositorio, rama main, archivo app.py
+    • Presiona "Deploy"
+    • Espera 1-2 minutos
+
+  Paso 5: ¡Listo!
+    Te aparece un enlace público (ej: https://tuapp.streamlit.app)
+    ESE es tu app. Comparte ese enlace.
+
+CADA VEZ QUE CAMBIES LAS FRASES
+  • Edita app.py en GitHub (botón de lápiz)
+  • O sube una versión nueva (Upload files)
+  • La app en internet se actualiza sola en unos segundos
+
+================================================================================
+4. VERLA EN EL CELULAR COMO UNA APP
+================================================================================
+
+Con el enlace público de Streamlit Cloud (ej: https://tuapp.streamlit.app)
+
+ANDROID (Chrome)
+  1. Abre el enlace en Chrome
+  2. Toca el menú ⋮ (tres puntos, arriba a la derecha)
+  3. Elige "Agregar a la pantalla de inicio"
+  4. Aparecerá un ícono como si fuera una app
+  5. Al abrirlo se ve a pantalla completa (casi como una app nativa)
+
+iPhone (Safari)
+  1. Abre el enlace en Safari
+  2. Toca el botón "Compartir" (cuadro con flecha ↑)
+  3. Elige "Agregar a inicio"
+  4. Aparecerá un ícono en la pantalla de inicio
+
+================================================================================
+5. CÓMO COMPARTIRLA
+================================================================================
+
+POR ENLACE
+  Simplemente envía la dirección https://tuapp.streamlit.app por:
+  • WhatsApp
+  • Correo
+  • Telegram
+  • Facebook
+  • etc.
+
+POR CÓDIGO QR
+  1. Ve a https://www.qr-code-generator.com
+  2. Pega tu enlace (https://tuapp.streamlit.app)
+  3. Descarga el código QR
+  4. Comparte la imagen
+  5. Quien lo escanee con la cámara abre la app al instante
+
+COMPARTIR UNA FRASE SUELTA
+  • Dentro de la app, debajo de cada tarjeta, abre "📋 Copiar / Compartir"
+  • Hay dos botones: "💬 WhatsApp" y "✈️ Telegram"
+  • Al presionar, se abre el chat con el texto de la frase listo para enviar
+
+================================================================================
+6. FAVORITAS ⭐ (GUARDADAS EN EL NAVEGADOR)
+================================================================================
+
+¿QUÉ SON?
+  Las favoritas se guardan en el localStorage del navegador (en el celular o
+  computadora del usuario). Esto significa:
+
+  • PERSISTEN aunque recargues la página
+  • PERSISTEN aunque cierres y vuelvas a abrir la app
+  • NO se pierden si apagas/enciendes el dispositivo
+  • Se guardan POR DISPOSITIVO Y POR NAVEGADOR
+
+CÓMO USARLAS
+
+  Marcar una favorita:
+    • Presiona el botón "☆ Favorita" debajo de cualquier tarjeta
+    • Aparecerá una estrella ⭐ junto al número de la reflexión
+    • El botón cambia a "⭐ Quitar"
+
+  Quitar una favorita:
+    • Presiona "⭐ Quitar"
+    • Desaparece la estrella
+
+  Ver solo favoritas:
+    • Usa el interruptor "⭐ Favoritas" (arriba)
+    • Solo se muestran las marcadas
+    • Si no hay ninguna, aparece un mensaje: "Aún no tienes favoritas"
+
+IMPORTANTE
+  • Las favoritas del CELULAR no aparecen en la COMPUTADORA (cada navegador
+    tiene su propio almacenamiento).
+  • Si el usuario borra los datos de navegación del sitio, se pierden.
+  • Si abre la app en un navegador diferente (ej: Chrome en vez de Safari),
+    tampoco ve las favoritas anteriores.
+
+================================================================================
+7. PROBLEMAS FRECUENTES Y SOLUCIONES
+================================================================================
+
+PROBLEMA: "streamlit no se reconoce como comando"
+  CAUSA: Las librerías no se instalaron
+  SOLUCIÓN: Ejecuta en la terminal:
+    pip install -r requirements.txt
+
+PROBLEMA: La app muestra un error rojo tras editar
+  CAUSA: Falta una coma o una comilla
+  SOLUCIÓN:
+    • Revisa la última línea que editaste
+    • Verifica que termine en coma: },
+    • Verifica que el "texto" esté entre comillas: "texto": "..."
+
+PROBLEMA: No aparece una frase que agregué
+  CAUSA: La línea no está dentro de la lista o falta coma
+  SOLUCIÓN:
+    • Verifica que la línea esté DENTRO de los corchetes [ ]
+    • Verifica que termine en coma:
+      {"numero": 101, ...},  ← coma aquí
+
+PROBLEMA: La búsqueda no encuentra una frase que debería encontrar
+  CAUSA: La búsqueda es inteligente pero tiene límites
+  SOLUCIÓN: Prueba con menos palabras o palabras clave principales
+
+PROBLEMA: Las favoritas se perdieron
+  CAUSA: El usuario borró los datos de navegación del sitio
+  SOLUCIÓN: Vuelven a marcar favoritas (no hay forma de recuperarlas)
+
+================================================================================
+8. NOTAS FINALES
+================================================================================
+
+AGREGAR FRASES
+  Cuando tengas frases nuevas o correcciones, me pasas:
+    • El número
+    • El texto
+    • La fecha (si la tienes)
+
+  Y yo las inserto en el formato correcto en app.py.
+
+COMPATIBILIDAD
+  • Funciona en cualquier navegador moderno (Chrome, Safari, Firefox, Edge)
+  • Funciona en celulares Android e iPhone
+  • Funciona en computadora (Windows, Mac, Linux)
+
+VERSIÓN ACTUAL
+  • 100 reflexiones
+  • Búsqueda difusa (tolera errores)
+  • Favoritas persistentes en el navegador
+  • Modo oscuro
+  • Reflexión al azar
+  • Compartir por WhatsApp/Telegram
+
+================================================================================
+  ¿DUDAS? Revisa este manual o comunícate directamente.
+================================================================================

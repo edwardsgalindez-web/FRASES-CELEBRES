@@ -1,0 +1,4 @@
+streamlit>=1.30
+thefuzz>=0.20.0
+python-Levenshtein>=0.25.0
+streamlit-local-storage>=0.1.5
